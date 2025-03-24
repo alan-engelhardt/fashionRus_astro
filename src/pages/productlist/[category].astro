@@ -19,5 +19,9 @@ console.log(data);
 
 <Layout>
   <h1>{category}</h1>
-  {data.map((product) => <Card data={product} />)}
+  <section class="productlist">
+    <main>
+      {data.map((product) => <Card data={product} />)}
+    </main>
+  </section>
 </Layout>
