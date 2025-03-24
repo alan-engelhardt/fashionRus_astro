@@ -2,4 +2,4 @@
 const { category } = Astro.props;
 ---
 
-<a href=`productlist.html?category=${category}`>{category}</a>
+<a href={`/productlist/${category}`}>{category}</a>
