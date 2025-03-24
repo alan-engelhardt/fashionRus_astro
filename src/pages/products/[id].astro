@@ -1,4 +1,5 @@
 ---
+import Layout from "../../layouts/Layout.astro";
 export async function getStaticPaths() {
   const res = await fetch("https://kea-alt-del.dk/t7/api/products");
   const data = await res.json();
@@ -13,4 +14,22 @@ export async function getStaticPaths() {
 const { item } = Astro.props;
 ---
 
-<h1>{item.productdisplayname}</h1>
+<Layout>
+  <div class="product">
+    <main id="productContainer">
+      <figure>
+        <img src=`https://kea-alt-del.dk/t7/images/webp/640/${item.id}.webp` alt="Produktbillede" class="productImage" />
+        <span class="saleLabel">Udsalg!</span>
+      </figure>
+      <section class="productDetails">
+        <h2 class="productName">{item.productdisplayname}</h2>
+        <div>
+          <p class="articleType"><span class="bold">Type:</span> {item.articletype}</p>
+          <p class="productCategory"><span class="bold">Kategori:</span> {item.category}</p>
+          <p class="productPrice"><span class="bold">Pris:</span> {item.price},-</p>
+        </div>
+        <button class="buyButton">Køb nu</button>
+      </section>
+    </main>
+  </div>
+</Layout>
