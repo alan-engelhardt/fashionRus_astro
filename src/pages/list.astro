@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+const cat = "Footwear";
+const response = await fetch(`https://kea-alt-del.dk/t7/api/products?category=${cat}`);
+const data = await response.json();
+console.log(data);
+---
+
+<Layout>
+  <div class="productlist">
+    <header class="mainNav">
+      <a href="index.html">
+        <h1>Fashion<span>R</span>Us</h1>
+      </a>
+      <nav>
+        <a href="category.html">Categories</a>
+        <a href="#">Brands</a>
+        <a href="#">Seasons</a>
+      </nav>
+    </header>
+    <h2>{cat}</h2>
+    <main>
+      {data.map((product) => <Card data={product} />)}
+    </main>
+  </div>
+</Layout>
