@@ -1,5 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import CategoryCard from "../components/CategoryCard.astro";
+const response = await fetch(`https://kea-alt-del.dk/t7/api/categories/`);
+const data = await response.json();
+console.log(data);
 ---
 
-<Layout />
+<Layout>
+  <header class="mainNav">
+    <a href="index.html">
+      <h1>Fashion<span>R</span>Us</h1>
+    </a>
+    <nav>
+      <a href="#">Categories</a>
+      <a href="category.html">Brands</a>
+      <a href="#">Seasons</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Categories</h2>
+    <section class="categorylist">
+      <!-- Her kommer indhold via javascript -->
+      {data.map((element) => <CategoryCard category={element.category} />)}
+    </section>
+  </main>
+</Layout>
