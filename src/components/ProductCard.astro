@@ -11,8 +11,7 @@ const { soldout, productdisplayname, articletype, brandname, price, discount, id
     discount && (
       <div class="discounted">
         <p>
-          Now DKK <span />
-          ,-
+          Now DKK <span>{Math.round(price - (price * discount) / 100)}</span>,-
         </p>
         <p>
           <span>{discount}</span>%
@@ -22,12 +21,3 @@ const { soldout, productdisplayname, articletype, brandname, price, discount, id
   }
   <a href="product.html/" {id}>Read More</a>
 </article>
-
-<style>
-  img {
-    max-width: 250px;
-  }
-  .soldOut {
-    background-color: red;
-  }
-</style>
