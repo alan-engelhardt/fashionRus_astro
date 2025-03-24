@@ -1,18 +1,23 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+
 export async function getStaticPaths() {
   const respons = await fetch("https://kea-alt-del.dk/t7/api/categories/");
   const categories = await respons.json();
-
   return categories.map((cat) => ({
     params: { category: cat.category },
   }));
 }
 
 const { category } = Astro.params;
+
+const response = await fetch(`https://kea-alt-del.dk/t7/api/products?category=${category}`);
+const data = await response.json();
+console.log(data);
 ---
 
 <Layout>
-  <h1>Category: {category}</h1>
-  <p>Showing products for category: {category}</p>
+  <h1>{category}</h1>
+  {data.map((product) => <Card data={product} />)}
 </Layout>
