@@ -1,5 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ProductCard from "../components/ProductCard.astro";
 ---
 
-<Layout />
+<Layout>
+  <div class="productlist">
+    <main>
+      <ProductCard productdisplayname="Sahara Team India Fanwear Round Neck Jersey" articletype="Tshirts" brandname="Nike" price="895" discount="45" id="1163" />
+      <ProductCard soldout productdisplayname="lue T20 Indian Cricket Jersey" articletype="Tshirts" brandname="Nike" price="1595" discount="45" id="1164" />
+      <ProductCard productdisplayname="Mean Team India Cricket Jersey" articletype="Backpacks" brandname="Puma" price="2495" discount="45" id="1525" />
+    </main>
+  </div>
+</Layout>
