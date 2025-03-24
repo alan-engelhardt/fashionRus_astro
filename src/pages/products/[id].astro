@@ -1,0 +1,16 @@
+---
+export async function getStaticPaths() {
+  const res = await fetch("https://kea-alt-del.dk/t7/api/products");
+  const data = await res.json();
+
+  console.log(data);
+  return data.map((item) => ({
+    params: { id: item.id },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+---
+
+<h1>{item.productdisplayname}</h1>
