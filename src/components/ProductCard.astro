@@ -3,23 +3,15 @@ const { product } = Astro.props;
 ---
 
 <article class={product.soldout ? "soldOut smallProduct" : "smallProduct"}>
-  <img
-    src=`https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp`
-    alt="product image"
-  />
-  <h3>{product.productdisplayname}</h3>
+  <img src=`https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp` alt="product image" style=`view-transition-name: image-${product.id}` />
+  <h3 style=`view-transition-name: navn-${product.id}`>{product.productdisplayname}</h3>
   <p class="subtle">{product.articletype} | {product.brandname}</p>
-  <p class="price">DKK <span>{product.price}</span>,-</p>
+  <p class="price" style=`view-transition-name: pris-${product.id}`>DKK <span>{product.price}</span>,-</p>
   {
     product.discount && (
       <div class="discounted">
         <p>
-          Now DKK{" "}
-          <span>
-            {Math.round(
-              product.price - (product.price * product.discount) / 100,
-            )}
-          </span>
+          Now DKK <span>{Math.round(product.price - (product.price * product.discount) / 100)}</span>
           ,-
         </p>
         <p>

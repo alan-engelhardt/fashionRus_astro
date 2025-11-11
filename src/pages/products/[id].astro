@@ -18,15 +18,15 @@ const { item } = Astro.props;
   <div class="product">
     <main id="productContainer">
       <figure>
-        <img src=`https://kea-alt-del.dk/t7/images/webp/640/${item.id}.webp` alt="Produktbillede" class="productImage" />
+        <img src=`https://kea-alt-del.dk/t7/images/webp/640/${item.id}.webp` alt="Produktbillede" class="productImage" style=`view-transition-name: image-${item.id}` />
         <span class="saleLabel">Udsalg!</span>
       </figure>
       <section class="productDetails">
-        <h2 class="productName">{item.productdisplayname}</h2>
+        <h3 class="productName" style=`view-transition-name: navn-${item.id}`>{item.productdisplayname}</h3>
         <div>
           <p class="articleType"><span class="bold">Type:</span> {item.articletype}</p>
           <p class="productCategory"><span class="bold">Kategori:</span> {item.category}</p>
-          <p class="productPrice"><span class="bold">Pris:</span> {item.price},-</p>
+          <p class="productPrice" style=`view-transition-name: pris-${item.id}`><span class="bold">Pris:</span> {item.price},-</p>
         </div>
         <button class="buyButton">Køb nu</button>
       </section>
