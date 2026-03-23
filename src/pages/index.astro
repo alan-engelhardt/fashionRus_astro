@@ -4,14 +4,15 @@ import Layout from "../layouts/Layout.astro";
 const endpoint = "https://flxrgxrvxeximsskwubc.supabase.co/rest/v1/test";
 const key = "sb_publishable_blXxApPlyxDnCVHdrO_sEA__Nmc254r";
 
-const options={
-	headers:{
-		apikey:key;
-	}
-}
-async fetch(endpoint,options);
+const options = {
+	headers: {
+		apikey: key,
+	},
+};
+const res = await fetch(endpoint, options);
+const data = await res.json();
 ---
 
 <Layout>
-	<Card />
+	{data.map((product) => <Card data={product} />)}
 </Layout>
