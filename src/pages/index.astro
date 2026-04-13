@@ -1,8 +1,8 @@
 ---
 import Card from "../components/card.astro";
 import Layout from "../layouts/Layout.astro";
-const endpoint = "https://flxrgxrvxeximsskwubc.supabase.co/rest/v1/test";
-const key = "sb_publishable_blXxApPlyxDnCVHdrO_sEA__Nmc254r";
+const endpoint = import.meta.env.VITE_SUPABASE_URL;
+const key = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 const options = {
 	headers: {
@@ -10,6 +10,7 @@ const options = {
 	},
 };
 const data = await fetch(endpoint, options).then((res) => res.json());
+console.log(data);
 ---
 
 <Layout>

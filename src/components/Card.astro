@@ -3,9 +3,7 @@ const { product } = Astro.props;
 ---
 
 <article>
-    <h2>{product.name}</h2>
-    <img src={"/img/" + product.images[0]} alt="product image" />
-    <img src={"/img/" + product.images[1]} alt="product image" />
+    <h2>{product.firstName}</h2>
 </article>
 
 <style>
